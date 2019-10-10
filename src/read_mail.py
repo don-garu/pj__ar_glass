@@ -41,7 +41,7 @@ def main():
             for test in msg['payload']['headers']:
                 if test['name'] == "Subject":
                     print(test)
-            print(msg['payload']['body'][0])
+            print(msg['payload']['body']['data'])
 #            print(msg['payload']['headers'][0])
 #            print(msg['payload']['headers'][1])
 #            print(msg['payload']['headers'][3])
