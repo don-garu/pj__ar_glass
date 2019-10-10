@@ -40,8 +40,7 @@ def main():
             for test in msg['payload']['headers']:
                 if test['name'] == "Subject":
                     print(test)
-            for test in msg['payload']['body']:
-                print(test['data'])
+            print(msg['payload']['body'])
 #            print(msg['payload']['headers'][0])
 #            print(msg['payload']['headers'][1])
 #            print(msg['payload']['headers'][3])
