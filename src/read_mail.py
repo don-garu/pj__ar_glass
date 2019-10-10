@@ -37,7 +37,9 @@ def main():
         for message in messages:
 #            print(message['payload']['headers']['name'] +  ' : ' + message['payload']['headers']['value'])
             msg = service.users().messages().get(userId='me', id=message['id']).execute()
-            print(msg['payload']['headers'][2])
+            print(msg['payload']['headers'][0])
+            print(msg['payload']['headers'][1])
+            print(msg['payload']['headers'][3])
 
 if __name__ == '__main__':
     main()
