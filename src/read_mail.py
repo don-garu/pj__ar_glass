@@ -5,7 +5,7 @@ import base64
 
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
-from google.auth.transport.requests import requests
+from google.auth.transport.requests import Request
 
 SCOPES = 'https://www.googleapis.com/auth/gmail.readonly'
 
@@ -41,7 +41,7 @@ def main():
             for test in msg['payload']['headers']:
                 if test['name'] == "Subject":
                     print(test)
-            print(msg['payload']['body'])
+            print(msg['payload']['body'][0])
 #            print(msg['payload']['headers'][0])
 #            print(msg['payload']['headers'][1])
 #            print(msg['payload']['headers'][3])
