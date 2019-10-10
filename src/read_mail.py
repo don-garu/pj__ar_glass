@@ -18,7 +18,7 @@ def main():
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
-            flow = InstalledAppFlow.from_client_secret_files(
+            flow = InstalledAppFlow.from_client_secrets_file(
                 'my_credentials.json', SCOPES
             )
             creds = flow.run_console()
