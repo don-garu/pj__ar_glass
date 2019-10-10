@@ -35,7 +35,7 @@ def main():
     else:
         print('Message snippets:')
         for message in messages:
-            print(message['subject'])
+            print(message)
 #            msg = service.users().messages().get(userId='me', id=message['id']).execute()
 #            print(msg['subject'])
 
