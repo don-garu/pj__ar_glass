@@ -42,7 +42,7 @@ def main():
                 if test['name'] == "Subject":
                     print(test)
             if 'parts' in msg['payload'].keys():
-                print(msg['payload']['parts'])
+                print(base64.b64decode(msg['payload']['parts'][0]['body']['data']))
 #                print(msg['payload']['body']['data'])
             #print(msg['payload']['body'])
 #            print(msg['payload']['headers'][0])
