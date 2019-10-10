@@ -9,7 +9,7 @@ from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw
 DisplayWidth, DisplayHeight = 64, 128 # OLED display 해상도
-RST, DC, SPI_PORT, SPI_DEVICE = 24, 25, 0, 0 # OLED pin 설정
+RST, DC, SPI_PORT, SPI_DEVICE = 24, 23, 0, 0 # OLED pin 설정
 
 # datetime 관련
 from datetime import datetime, timedelta, timezone
