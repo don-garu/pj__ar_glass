@@ -38,8 +38,7 @@ def main():
 #            print(message['payload']['headers']['name'] +  ' : ' + message['payload']['headers']['value'])
             msg = service.users().messages().get(userId='me', id=message['id']).execute()
             for test in msg['payload']['headers']:
-                if (test['name'] == "Subject")
-                    print(test)
+                type(test)
 #            print(msg['payload']['headers'][0])
 #            print(msg['payload']['headers'][1])
 #            print(msg['payload']['headers'][3])
