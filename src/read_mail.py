@@ -45,11 +45,11 @@ def main():
                 if 'data' in msg['payload']['parts'][0]['body'].keys():
                     try:
                         real_msg = base64.b64decode(msg['payload']['parts'][0]['body']['data'])
-                        print('<body>')
                         print(real_msg)
-                        print('</body>')
                     except binascii.Error:
                         print('b64 decode error')
+                else:
+                    print('#has no body')
 #                print(msg['payload']['body']['data'])
             #print(msg['payload']['body'])
 #            print(msg['payload']['headers'][0])
