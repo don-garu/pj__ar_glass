@@ -26,7 +26,7 @@ from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 # 구글 클라우드 플랫폼 프로젝트 클라이언트 인증정보파일
-GOOGLE_CLIENT_SECRET_JSON_FILE_NAME = 'client_secret_833859315115-0e620i30ei49u72t7rs4q7vfldbrfl3h.apps.googleusercontent.com.json'
+GOOGLE_CLIENT_SECRET_JSON_FILE_NAME = 'my_credentials.json'
 # 구글 authorization 요청 범위
 SCOPES = ['https://www.googleapis.com/auth/gmail.modify', 'https://www.googleapis.com/auth/calendar.readonly']
 
