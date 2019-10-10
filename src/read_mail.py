@@ -27,7 +27,7 @@ def main():
     service = build('gmail', 'v1', credentials=creds)
 
     # Call the Gmail API to fetch INBOX
-    results = service.users().messages().list(userId='me', labelIds = ['INBOX']).execute()
+    results = service.users().messages().list(userId='me', labelIds = ['UNREAD']).execute()
     messages = results.get('messages', [])
 
     if not messages:
