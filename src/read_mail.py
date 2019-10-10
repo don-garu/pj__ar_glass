@@ -42,11 +42,12 @@ def main():
                 if test['name'] == "Subject":
                     print(test)
             if 'parts' in msg['payload'].keys():
-                try:
-                    real_msg = base64.b64decode(msg['payload']['parts'][0]['body']['data'])
-                    print(real_msg)
-                except binascii.Error:
-                    print('b64 decode error')
+                if 'data' in msg['payload']['parts'][0]['body'].keys():
+                    try:
+                        real_msg = base64.b64decode(msg['payload']['parts'][0]['body']['data'])
+                        print(real_msg)
+                    except binascii.Error:
+                        print('b64 decode error')
 #                print(msg['payload']['body']['data'])
             #print(msg['payload']['body'])
 #            print(msg['payload']['headers'][0])
