@@ -40,12 +40,14 @@ def main():
             msg = service.users().messages().get(userId='me', id=message['id']).execute()
             for test in msg['payload']['headers']:
                 if test['name'] == "Subject":
-                    print(test)
+                    print('Subject : ' + test['value'])
             if 'parts' in msg['payload'].keys():
                 if 'data' in msg['payload']['parts'][0]['body'].keys():
                     try:
                         real_msg = base64.b64decode(msg['payload']['parts'][0]['body']['data'])
+                        print('<body>')
                         print(real_msg)
+                        print('</body>')
                     except binascii.Error:
                         print('b64 decode error')
 #                print(msg['payload']['body']['data'])
