@@ -42,7 +42,8 @@ def main():
                 if test['name'] == "Subject":
                     print(test)
             if 'data' in msg['payload']['body']:
-                print(msg['payload']['body']['data'])
+                string_data = base64.b64decode(msg['payload']['body']['data'])
+#                print(msg['payload']['body']['data'])
             #print(msg['payload']['body'])
 #            print(msg['payload']['headers'][0])
 #            print(msg['payload']['headers'][1])
