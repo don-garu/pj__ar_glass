@@ -1,17 +1,30 @@
+from __futurue__ import print_function
+import pickle
+import os.path
+
 from googleapiclient.discovery import build
-from httplib2 import Http
-from oauth2client import file, client, tools
+from google_auth_oauthlib.flow import InstalledAppFlow
+from google.auth.transport.requests import requests
 
 SCOPES = 'https://www.googleapis.com/auth/gmail.readonly'
 
 def main():
-    store = file.Storage('token.json')
-    creds = store.get()
+    creds = None
 
-    if not creds or creds.invalid:
-        flow = client.flow_from_clientsecrets('my_credentials.json', SCOPES)
-        creds = tools.run_flow(flow, store)
-    service = build('gmail', 'v1', http=creds.authorize(Htpp()))
+    if os.path.exists('token.pickle'):
+        with open('token.pickle', 'rb') as token:
+            creds = pickle.load(token)
+    if not creds or not creds.valid:
+        if creds and creds.expired and creds.refresh_token:
+            creds.refresh(Request())
+        else:
+            flow = InstalledAppFlow.from_client_secret_files(
+                'my_credentials.json', SCOPES
+            )
+            creds = flow.run_console()
+        with open('token.pickle', 'wb') as token:
+            pickle.dump(creds, token)
+    service = build('gmail', 'v1', credentials=creds)
 
     # Call the Gmail API to fetch INBOX
     results = service.users().messages().list(userId='me', labelIds = ['INBOX']).execute()
